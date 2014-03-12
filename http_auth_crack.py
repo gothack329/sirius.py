@@ -1,6 +1,6 @@
 #-*-coding:utf-8-*-
 '''
-by SiRius.Gothack(gothack.329@gmail.com) 2013-03-15
+by SiRius.Gothack(gothack.329@gmail.com)  2013-03-15
 '''
 from urllib2 import Request, urlopen, URLError, HTTPError  
 import urllib
