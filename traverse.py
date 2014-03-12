@@ -165,7 +165,7 @@ def sendmail(user,passwd):
 	smtp.sendmail(mail_from,mail_to,msg.as_string())
 	smtp.quit()
 
-retr_mail('pmnpc@staff.sina.com.cn','sinap@ssw0rd_')
+retr_mail('pmnpc@sina.com.cn','pass')
 classify()	
-sendmail('pmnpc','sinap@ssw0rd_')
+sendmail('pmnpc','pass')
 
