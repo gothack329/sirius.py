@@ -1,10 +1,8 @@
 #-*- coding: UTF-8 -*- 
+
 import urllib2,urllib,sys
 
-
-
 msg = sys.argv[1]
-
 header = {
 			'Accept':' */*',
 			'Accept-Encoding':'gzip,deflate,sdch',
