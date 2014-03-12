@@ -1,7 +1,7 @@
 from itertools import product
 import os
 
-keywords = ['121','226','89','19','gao','fei','f','g','G','F','0','GAO','FEI'] 
+keywords = ['121','0'] 
 lens = len(keywords)
 
 dic = open('password.txt','a+')
