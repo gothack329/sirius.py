@@ -1,9 +1,9 @@
 #-*- coding: UTF-8 -*- 
+
 import requests
 import urllib2
 
 r = requests.get('http://www.simsimi.com/talk.htm')
-
 cookie = r.cookies
 #cookie_proc = urllib2.HTTPCookieProcessor(cookie)
 #opener = urllib2.build_opener(cookie_proc)
