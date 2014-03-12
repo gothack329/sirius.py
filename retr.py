@@ -60,5 +60,5 @@ def retr_mail(username,password):
 			#print subject
 	cx.commit()
 	
-retr_mail('sunran@staff.sina.com.cn','sirius_329')
+retr_mail('user@123.com','pass')
 	
