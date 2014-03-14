@@ -20,7 +20,7 @@ gen.ignoreNonIncreasingOid = True
 
 for i,s in enumerate(count):
     errorIndication,errorStatus,errorIndex,adict['varBinds%s' % (i+1)] = \
-        cmdgen.CommandGenerator().nextCmd(
+        gen.nextCmd(
             cmdgen.CommunityData('public','public',1),
             cmdgen.UdpTransportTarget((host,161)),
             (1,3,6,1,2,1,2,2,1,2),(1,3,6,1,2,1,2,2,1,8),(1,3,6,1,2,1,31,1,1,1,6),(1,3,6,1,2,1,31,1,1,1,10))
@@ -34,6 +34,13 @@ for i in varBinds2:
 
 for k,v in result.items():
     print k,v
+
+
+
+
+
+
+
 
 
 '''
