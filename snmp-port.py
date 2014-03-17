@@ -24,6 +24,7 @@ for i,s in enumerate(count):
             cmdgen.CommunityData('public','public',1),
             cmdgen.UdpTransportTarget((host,161)),
             (1,3,6,1,2,1,2,2,1,2),(1,3,6,1,2,1,2,2,1,8),(1,3,6,1,2,1,31,1,1,1,6),(1,3,6,1,2,1,31,1,1,1,10))
+            #PORT,STATUS,Traffic In,Traffic Out
     time.sleep(sec)
 
 for i in varBinds1:
