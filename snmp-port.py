@@ -1,5 +1,5 @@
 from pysnmp.entity.rfc3413.oneliner import cmdgen
-import time
+import time,sys
 
 def _human(traffic,time):
     traffic = float(traffic)
@@ -8,7 +8,7 @@ def _human(traffic,time):
     if GB > 0.7:return str('%.2f' % GB)+' GB/s'
     else: return str('%.2f' % MB)+' MB/s'
 
-host = '192.168.100.1'
+host = sys.argv[1]
 status = {1:'UP',2:'DOWN'}
 result = {}
 adict=locals()
