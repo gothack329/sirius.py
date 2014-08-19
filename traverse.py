@@ -76,7 +76,7 @@ def classify():
 	cpu={}
 
 	'''get all data'''
-	cx = sqlite.connect('/usr/home/sunran/monitor/watchtower.db')
+	cx = sqlite.connect('/usr/home/nitor/watchtower.db')
 	cu = cx.cursor()
 	cu.execute('delete from root_count')
 	cu.execute('select subject from root_mail')
@@ -147,25 +147,25 @@ def classify():
 
 
 def sendmail(user,passwd):
-	content = '<p>更多请访问 <a href="http://172.16.118.110/traverse/">http://172.16.118.110/traverse/</a><p>'+urllib.urlopen('http://172.16.118.110/traverse/').read().split('<!--content-->')[1]
-	mail_from='pmnpc@staff.sina.com.cn'
-	mail_to=['netpm@staff.sina.com.cn','jinjiang@staff.sina.com.cn','xiaoyue1@staff.sina.com.cn','zhuxing@staff.sina.com.cn']
+	content = '<p>更多请访问 <a href="http://172.1.8.110/traverse/">http://12.6.18.110/traverse/</a><p>'+urllib.urlopen('http://172.16.118.110/traverse/').read().split('<!--content-->')[1]
+	mail_from='aa@sina.com.cn'
+	mail_to=['dd@sina.com.cn','a@.sina.com.cn','b@sina.com.cn','c@sina.com.cn']
 	#mail_to=['sunran@staff.sina.com.cn']
 	msg=MIMEMultipart('alternative')
 	msg['subject']=u'[Traverse Alert Summary 每日报警汇总]-'+time.strftime('%Y/%m/%d')
-	msg['from']='pmnpc@staff.sina.com.cn'
+	msg['from']='d@sina.com.cn'
 	msg['to']=';'.join(mail_to)
 	msg['date']=time.strftime('%a, %d %b %Y %H:%M:%S %z')
 	html=MIMEText(content,'html',_charset='utf8')
 	msg.attach(html)
 
 	smtp=smtplib.SMTP()
-	smtp.connect('mail.staff.sina.com.cn')
+	smtp.connect('mail.sina.com.cn')
 	smtp.login(user,passwd)
 	smtp.sendmail(mail_from,mail_to,msg.as_string())
 	smtp.quit()
 
-retr_mail('pmnpc@sina.com.cn','pass')
+retr_mail('ab@sina.com.cn','pass')
 classify()	
-sendmail('pmnpc','pass')
+sendmail('ab','pass')
 
