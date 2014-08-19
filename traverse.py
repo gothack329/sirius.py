@@ -19,14 +19,14 @@ def time_format(TIME):
 
 def retr_mail(username,password):
 	"""Login"""
-	server = 'mail.staff.sina.com.cn'
+	server = 'mail.a.com.cn'
 	pop = poplib.POP3_SSL(server)
 	pop.set_debuglevel(1)
 	pop.user(username)
 	pop.pass_(password)
 	
 	"""SQL"""
-	cx = sqlite.connect('/usr/home/sunran/monitor/watchtower.db')
+	cx = sqlite.connect('/us/monitor/watchtower.db')
 	cu = cx.cursor()
 	"""clear all data before retr mail"""
 	cu.execute("delete from root_mail")
@@ -147,7 +147,7 @@ def classify():
 
 
 def sendmail(user,passwd):
-	content = '<p>更多请访问 <a href="http://172.1.8.110/traverse/">http://12.6.18.110/traverse/</a><p>'+urllib.urlopen('http://172.16.118.110/traverse/').read().split('<!--content-->')[1]
+	content = '<p>更多请访问 <a href="http://172.1.8.10/traverse/">http://12.6.18.10/traverse/</a><p>'+urllib.urlopen('http://172.16.118.110/traverse/').read().split('<!--content-->')[1]
 	mail_from='aa@sina.com.cn'
 	mail_to=['dd@sina.com.cn','a@.sina.com.cn','b@sina.com.cn','c@sina.com.cn']
 	#mail_to=['sunran@staff.sina.com.cn']
