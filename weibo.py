@@ -48,12 +48,14 @@ def weibo(uid):
         instapush(username,time,content)
     
     cx.commit()
+    return
 
 
 
 def instapush(username,time,content):
     app = App(appid='appid',secret='app secret')
     app.notify(event_name='Weibo',trackers={"username":username,"time":time,"weibo":content})
+    return
 
 
 
