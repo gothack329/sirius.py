@@ -25,8 +25,13 @@ class LoginStatus:
     def getData(self , url):
         request = urllib.request.Request(url)
         response = urllib.request.urlopen(request)
-        text = response.read().decode('utf-8')
+        text = response.read()
+        try:
+            text = text.decode('utf-8')
+        except Exception as e:
+            text = text.decode('latin-1')
         return text
+
 
     def postData(self, url , data):
         headers = {'User-Agent' : 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)'}
