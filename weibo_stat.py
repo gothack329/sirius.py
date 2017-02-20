@@ -21,6 +21,8 @@ class LoginStatus:
         self.cookie_support = urllib.request.HTTPCookieProcessor(self.cj)
         self.opener = urllib.request.build_opener(self.cookie_support , urllib.request.HTTPHandler) 
         urllib.request.install_opener(self.opener)
+        a = urllib.request.urlopen("http://1212.ip138.com/ic.asp").read()
+        print(a.decode('latin-1').split('[')[1].split(']')[0])
 
     def getData(self , url):
         request = urllib.request.Request(url)
@@ -31,7 +33,6 @@ class LoginStatus:
         except Exception as e:
             text = text.decode('latin-1')
         return text
-
 
     def postData(self, url , data):
         headers = {'User-Agent' : 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)'}
@@ -65,7 +66,7 @@ class LoginStatus:
         try:
             urll = re.findall("location.replace\(\'(.*?)\'\);" , s)[0]
         except Exception as e:
-            os.system('start cn proxy')
+            pass
         self.getData(urll)
 
     def getStatus(self,uid):
@@ -77,11 +78,12 @@ class LoginStatus:
         inner = soup.find('i',{'class':'W_chat_stat'})
         status = inner['class'][1]
         u = [x.split('=')[1] for x in soup.find('a',{'class':'W_btn_c'})['action-data'].split('&')]
+        print(None,u[0],u[1],now,status)
         return (None,u[0],u[1],now,status)
 
     def refresh(self,uid):
         uid = str(uid)
-        cx = sqlite3.connect("/root/script/weibo.db")
+        cx = sqlite3.connect("weibo.db")
         cu=cx.cursor()
 
         last = cu.execute('select max(rowid),action from status where uid=="'+uid+'" ').fetchone()[1]
@@ -102,5 +104,14 @@ class LoginStatus:
 
 
 if __name__ == '__main__':
-    weibo = LoginStatus('weibo_username','password')
-    weibo.refresh(uid)
+    weibo = LoginStatus('username','password')
+
+    uids = [ 1223920903 ]
+
+    for i in uids:
+        try:
+            weibo.refresh(i)
+        except Exception as e:
+            print(e)
+            continue
+
