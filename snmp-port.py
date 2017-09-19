@@ -3,10 +3,10 @@ import time,sys
 
 def _human(traffic,time):
     traffic = float(traffic)
-    GB=traffic/1000000000/time
-    MB=traffic/1000000/time
-    if GB > 0.7:return str('%.2f' % GB)+' GB/s'
-    else: return str('%.2f' % MB)+' MB/s'
+    Gb=traffic/1000000000/time
+    Mb=traffic/1000000/time
+    if Gb > 0.7:return str('%.2f' % Gb)+' Gb/s'
+    else: return str('%.2f' % Mb)+' Mb/s'
 
 host = sys.argv[1]
 status = {1:'UP',2:'DOWN'}
